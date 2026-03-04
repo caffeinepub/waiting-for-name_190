@@ -15,7 +15,21 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        heading: ['"Playfair Display"', "Georgia", "serif"],
+        body: ["Outfit", "sans-serif"],
+      },
       colors: {
+        gold: {
+          DEFAULT: "oklch(var(--gold))",
+          muted: "oklch(var(--gold-muted))",
+          dim: "oklch(var(--gold-dim))",
+        },
+        obsidian: {
+          DEFAULT: "oklch(var(--obsidian))",
+          light: "oklch(var(--obsidian-light))",
+          mid: "oklch(var(--obsidian-mid))",
+        },
         border: "oklch(var(--border))",
         input: "oklch(var(--input))",
         ring: "oklch(var(--ring) / <alpha-value>)",

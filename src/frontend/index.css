@@ -2,82 +2,165 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Playfair Display ─── */
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay-VariableFont_wght.woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay-Italic-VariableFont_wght.woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ─── Outfit ─── */
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/Outfit-VariableFont_wght.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
-    --radius: 0.625rem;
-    --background: 1 0 0;
-    --foreground: 0.145 0 0;
-    --card: 1 0 0;
-    --card-foreground: 0.145 0 0;
-    --popover: 1 0 0;
-    --popover-foreground: 0.145 0 0;
-    --primary: 0.205 0 0;
-    --primary-foreground: 0.985 0 0;
-    --secondary: 0.97 0 0;
-    --secondary-foreground: 0.205 0 0;
-    --muted: 0.97 0 0;
-    --muted-foreground: 0.556 0 0;
-    --accent: 0.97 0 0;
-    --accent-foreground: 0.205 0 0;
+    --radius: 0.375rem;
+
+    /* Gold & Obsidian — Dark theme as default */
+    --background: 0.10 0 0;
+    --foreground: 0.96 0 0;
+    --card: 0.14 0 0;
+    --card-foreground: 0.96 0 0;
+    --popover: 0.16 0 0;
+    --popover-foreground: 0.96 0 0;
+    --primary: 0.75 0.14 85;
+    --primary-foreground: 0.10 0 0;
+    --secondary: 0.18 0 0;
+    --secondary-foreground: 0.65 0.10 85;
+    --muted: 0.18 0 0;
+    --muted-foreground: 0.55 0 0;
+    --accent: 0.75 0.14 85;
+    --accent-foreground: 0.10 0 0;
     --destructive: 0.577 0.245 27.325;
     --destructive-foreground: 0.985 0 0;
-    --border: 0.922 0 0;
-    --input: 0.922 0 0;
-    --ring: 0.708 0 0;
-    --chart-1: 0.646 0.222 41.116;
-    --chart-2: 0.6 0.118 184.704;
-    --chart-3: 0.398 0.07 227.392;
-    --chart-4: 0.828 0.189 84.429;
-    --chart-5: 0.769 0.188 70.08;
-    --sidebar: 0.985 0 0;
-    --sidebar-foreground: 0.145 0 0;
-    --sidebar-primary: 0.205 0 0;
-    --sidebar-primary-foreground: 0.985 0 0;
-    --sidebar-accent: 0.97 0 0;
-    --sidebar-accent-foreground: 0.205 0 0;
-    --sidebar-border: 0.922 0 0;
-    --sidebar-ring: 0.708 0 0;
+    --border: 0.22 0 0;
+    --input: 0.22 0 0;
+    --ring: 0.75 0.14 85;
+    --chart-1: 0.75 0.14 85;
+    --chart-2: 0.65 0.10 85;
+    --chart-3: 0.55 0.08 85;
+    --chart-4: 0.45 0.06 85;
+    --chart-5: 0.35 0.04 85;
+    --sidebar: 0.12 0 0;
+    --sidebar-foreground: 0.96 0 0;
+    --sidebar-primary: 0.75 0.14 85;
+    --sidebar-primary-foreground: 0.10 0 0;
+    --sidebar-accent: 0.18 0 0;
+    --sidebar-accent-foreground: 0.65 0.10 85;
+    --sidebar-border: 0.22 0 0;
+    --sidebar-ring: 0.75 0.14 85;
+
+    /* Gold custom tokens */
+    --gold: 0.75 0.14 85;
+    --gold-muted: 0.65 0.10 85;
+    --gold-dim: 0.45 0.08 85;
+    --obsidian: 0.10 0 0;
+    --obsidian-light: 0.14 0 0;
+    --obsidian-mid: 0.18 0 0;
   }
 
   .dark {
-    --background: 0.145 0 0;
-    --foreground: 0.985 0 0;
-    --card: 0.205 0 0;
-    --card-foreground: 0.985 0 0;
-    --popover: 0.269 0 0;
-    --popover-foreground: 0.985 0 0;
-    --primary: 0.922 0 0;
-    --primary-foreground: 0.205 0 0;
-    --secondary: 0.269 0 0;
-    --secondary-foreground: 0.985 0 0;
-    --muted: 0.269 0 0;
-    --muted-foreground: 0.708 0 0;
-    --accent: 0.371 0 0;
-    --accent-foreground: 0.985 0 0;
-    --destructive: 0.704 0.191 22.216;
-    --destructive-foreground: 0.205 0 0;
-    --border: 1 0 0 / 10%;
-    --input: 1 0 0 / 15%;
-    --ring: 0.556 0 0;
-    --chart-1: 0.488 0.243 264.376;
-    --chart-2: 0.696 0.17 162.48;
-    --chart-3: 0.769 0.188 70.08;
-    --chart-4: 0.627 0.265 303.9;
-    --chart-5: 0.645 0.246 16.439;
-    --sidebar: 0.205 0 0;
-    --sidebar-foreground: 0.985 0 0;
-    --sidebar-primary: 0.488 0.243 264.376;
-    --sidebar-primary-foreground: 0.985 0 0;
-    --sidebar-accent: 0.269 0 0;
-    --sidebar-accent-foreground: 0.985 0 0;
-    --sidebar-border: 1 0 0 / 10%;
-    --sidebar-ring: 0.439 0 0;
+    --background: 0.10 0 0;
+    --foreground: 0.96 0 0;
+    --card: 0.14 0 0;
+    --card-foreground: 0.96 0 0;
+    --popover: 0.16 0 0;
+    --popover-foreground: 0.96 0 0;
+    --primary: 0.75 0.14 85;
+    --primary-foreground: 0.10 0 0;
+    --secondary: 0.18 0 0;
+    --secondary-foreground: 0.65 0.10 85;
+    --muted: 0.18 0 0;
+    --muted-foreground: 0.55 0 0;
+    --accent: 0.75 0.14 85;
+    --accent-foreground: 0.10 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.22 0 0;
+    --input: 0.22 0 0;
+    --ring: 0.75 0.14 85;
+    --chart-1: 0.75 0.14 85;
+    --chart-2: 0.65 0.10 85;
+    --chart-3: 0.55 0.08 85;
+    --chart-4: 0.45 0.06 85;
+    --chart-5: 0.35 0.04 85;
+    --sidebar: 0.12 0 0;
+    --sidebar-foreground: 0.96 0 0;
+    --sidebar-primary: 0.75 0.14 85;
+    --sidebar-primary-foreground: 0.10 0 0;
+    --sidebar-accent: 0.18 0 0;
+    --sidebar-accent-foreground: 0.65 0.10 85;
+    --sidebar-border: 0.22 0 0;
+    --sidebar-ring: 0.75 0.14 85;
   }
 
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+    font-family: "Outfit", sans-serif;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+}
+
+/* ─── Utility classes ─── */
+.font-heading {
+  font-family: "Playfair Display", Georgia, serif;
+}
+.font-body {
+  font-family: "Outfit", sans-serif;
+}
+
+/* Gold shimmer animation */
+@keyframes gold-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    oklch(0.65 0.10 85),
+    oklch(0.85 0.16 85),
+    oklch(0.75 0.14 85),
+    oklch(0.85 0.16 85),
+    oklch(0.65 0.10 85)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gold-shimmer 4s linear infinite;
+}
+
+/* Subtle grain overlay */
+.grain-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.04;
+  z-index: 0;
 }
